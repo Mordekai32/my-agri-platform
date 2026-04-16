@@ -42,7 +42,7 @@ const AgriPlatform = () => {
             </div>
           </div>
           <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square bg-green-100 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative w-full max-w-md aspect-square bg-green-100 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
                <div className="absolute inset-0 flex items-center justify-center">
                   <Globe className="w-48 h-48 text-green-200" />
                </div>
@@ -76,64 +76,75 @@ const AgriPlatform = () => {
       </main>
 
       {/* Footer Section */}
-      <footer className="bg-slate-900 text-slate-300 py-12">
+      <footer className="bg-slate-950 text-slate-400 py-16">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-1">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            <div className="md:col-span-4">
               <div className="flex items-center gap-2 mb-6">
-                <Leaf className="text-green-500 w-6 h-6" />
-                <span className="text-xl font-bold text-white">Agri-Platforms</span>
+                <Leaf className="text-green-500 w-7 h-7" />
+                <span className="text-2xl font-bold text-white tracking-tight">Agri-Platforms</span>
               </div>
-              <p className="text-sm leading-relaxed">
-                Empowering the agricultural sector through smart technology and direct market access.
+              <p className="text-sm leading-relaxed max-w-sm mb-6">
+                Leading the digital transformation of African agriculture by bridging the gap between field and market.
               </p>
+              <div className="flex flex-col gap-1">
+                 <span className="text-xs uppercase tracking-widest text-slate-500 font-bold">Follow us</span>
+                 <p className="text-white font-medium">Instagram: <span className="text-green-500">blaise_320</span></p>
+              </div>
             </div>
             
-            <div>
-              <h4 className="text-white font-bold mb-6">Quick Links</h4>
-              <ul className="space-y-4 text-sm">
-                <li><a href="#" className="hover:text-green-500 transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-green-500 transition-colors">Marketplace</a></li>
-                <li><a href="#" className="hover:text-green-500 transition-colors">Terms of Service</a></li>
+            <div className="md:col-span-2">
+              <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Explore</h4>
+              <ul className="space-y-4 text-sm font-medium">
+                <li><a href="#" className="hover:text-green-400 transition-colors">Marketplace</a></li>
+                <li><a href="#" className="hover:text-green-400 transition-colors">Knowledge Hub</a></li>
+                <li><a href="#" className="hover:text-green-400 transition-colors">Logistics</a></li>
+                <li><a href="#" className="hover:text-green-400 transition-colors">About Us</a></li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-white font-bold mb-6">Contact</h4>
+            <div className="md:col-span-3">
+              <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Contact</h4>
               <ul className="space-y-4 text-sm">
-                <li className="flex items-center gap-2"><Mail size={16} /> mordekai893@gmail.com</li>
-                <li className="flex items-center gap-2"><Phone size={16} /> +250 796381024</li>
-                <li className="flex items-center gap-2"><MapPin size={16} /> Kigali, Rwanda</li>
-                {/* Added Instagram as text here */}
-                <li className="text-slate-400 pt-2">Instagram: <span className="text-green-500">blaise_320</span></li>
+                <li className="flex items-start gap-3">
+                  <Mail size={18} className="text-green-500 mt-0.5" /> 
+                  <span>mordekai893@gmail.com</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone size={18} className="text-green-500 mt-0.5" /> 
+                  <span>+250 796381024</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <MapPin size={18} className="text-green-500 mt-0.5" /> 
+                  <span>Kigali, Rwanda</span>
+                </li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-white font-bold mb-6">Newsletter</h4>
+            <div className="md:col-span-3">
+              <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Stay Updated</h4>
+              <p className="text-xs mb-4">Subscribe for market insights and updates.</p>
               <div className="flex gap-2">
                 <input 
                   type="email" 
-                  placeholder="Your email" 
-                  className="bg-slate-800 border-none rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-green-500"
+                  placeholder="Email address" 
+                  className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 w-full focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm"
                 />
-                <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all">
+                <button className="bg-green-600 text-white px-5 py-2.5 rounded-xl hover:bg-green-500 font-bold transition-all text-sm">
                   Join
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-500">
-              © {new Date().getFullYear()} Agri-Platforms. All rights reserved.
-            </p>
-            <div className="flex flex-col items-center md:items-end">
-              <p className="text-sm font-medium text-slate-400">
-                Developed by <span className="text-green-500">UKOBUKEYE Mordekai</span>
+          <div className="border-t border-slate-900 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-xs text-slate-500 font-medium">
+              © {new Date().getFullYear()} Agri-Platforms. Proudly serving the agricultural community.
+            </div>
+            <div className="px-5 py-2 bg-slate-900 rounded-full border border-slate-800">
+              <p className="text-xs font-medium text-slate-400">
+                Developed by <span className="text-white">UKOBUKEYE Mordekai</span>
               </p>
-              {/* Also added to the attribution section for clarity */}
-              <p className="text-xs text-slate-500">IG: blaise_320</p>
             </div>
           </div>
         </div>
@@ -143,12 +154,12 @@ const AgriPlatform = () => {
 };
 
 const FeatureCard = ({ icon, title, desc }) => (
-  <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-xl transition-shadow border border-slate-100">
-    <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center shadow-sm mb-6">
-      {icon}
+  <div className="p-8 rounded-3xl bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 group">
+    <div className="bg-green-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
+      {React.cloneElement(icon, { className: "w-7 h-7" })}
     </div>
-    <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-    <p className="text-slate-600 leading-relaxed">{desc}</p>
+    <h3 className="text-xl font-bold text-slate-900 mb-4">{title}</h3>
+    <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
   </div>
 );
 
