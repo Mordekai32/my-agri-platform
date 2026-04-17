@@ -42,7 +42,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Guhuza Afurika Duhereye mu Rwanda",
         description: "Platifomu yacu ihuza abahinzi b'Abanyarwanda n'amasoko yo muri Afurika yose",
-        expanding: "Tugana mu bindi bihugu bya Afurika muri 2025",
+        expanding: "Tugana mu bindi bihugu bya Afurika muri 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
@@ -109,7 +109,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Connecting Africa from Rwanda",
         description: "Our platform bridges the gap between Rwandan farmers and markets across the African continent",
-        expanding: "Expanding to more African countries in 2025",
+        expanding: "Expanding to more African countries in 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
@@ -176,7 +176,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Connecter l'Afrique depuis le Rwanda",
         description: "Notre plateforme comble le fossé entre les agriculteurs rwandais et les marchés à travers le continent africain",
-        expanding: "Expansion vers d'autres pays africains en 2025",
+        expanding: "Expansion vers d'autres pays africains en 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
