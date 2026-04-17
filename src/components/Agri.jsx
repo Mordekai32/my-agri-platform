@@ -24,7 +24,7 @@ const AgriPlatform = () => {
         title: "Ibikorwa Nyamukuru bya Platifomu",
         marketplace: {
           title: "Isoko rya Digitali",
-          desc: "Guhuza abahinzi n'abaguzi mu buryo butaziguye, bikavana abadohoozi batari ngombwa."
+          desc: "Guhuza abahinzi n'abaguzi mu buryo butaziguye, bikavana abadohozi batari ngombwa."
         },
         pricing: {
           title: "Ibiciro mu gihe nyacyo",
