@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import { Leaf, ShoppingCart, BarChart3, Globe, ShieldCheck, Mail, Phone, MapPin, ChevronDown, Map, ExternalLink, Code, Menu, X, ArrowRight, Star, Users, TrendingUp, Award, CheckCircle, Sparkles, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Leaf, ShoppingCart, BarChart3, Globe, ShieldCheck, Mail, Phone, MapPin, ChevronDown, Map, ExternalLink, Code, Menu, X, ArrowRight, Star, Users, TrendingUp, Award, CheckCircle, Sparkles, Zap, Heart, Sun, Cloud, Layers, Cpu, Database, Lock, Smartphone, CloudRain, Wind, Droplet, Thermometer } from 'lucide-react';
 
 const AgriPlatform = () => {
   const [language, setLanguage] = useState('english');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Language translations
   const translations = {
@@ -49,7 +58,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Guhuza Afurika Duhereye mu Rwanda",
         description: "Platifomu yacu ihuza abahinzi b'Abanyarwanda n'amasoko yo muri Afurika yose",
-        expanding: "Tugana mu bindi bihugu bya Afurika muri 2025",
+        expanding: "Tugana mu bindi bihugu bya Afurika muri 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
@@ -127,7 +136,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Connecting Africa from Rwanda",
         description: "Our platform bridges the gap between Rwandan farmers and markets across the African continent",
-        expanding: "Expanding to more African countries in 2025",
+        expanding: "More countries coming in 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
@@ -141,8 +150,8 @@ const AgriPlatform = () => {
       },
       cta: {
         title: "Ready to Transform Your Farming?",
-        description: "Join the first 1,000 farmers across Rwanda and Africa connecting their fields to the market",
-        button: "Get Started Now"
+        description: "Join 1,000+ farmers across Rwanda & Africa connecting to markets",
+        button: "Get Started"
       },
       footer: {
         description: "Leading the digital transformation of African agriculture, starting from Rwanda, by bridging the gap between field and market.",
@@ -205,7 +214,7 @@ const AgriPlatform = () => {
       africaSection: {
         title: "Connecter l'Afrique depuis le Rwanda",
         description: "Notre plateforme comble le fossé entre les agriculteurs rwandais et les marchés à travers le continent africain",
-        expanding: "Expansion vers d'autres pays africains en 2025",
+        expanding: "Plus de pays à venir en 2026",
         countries: {
           rwanda: "Rwanda",
           kenya: "Kenya",
@@ -219,8 +228,8 @@ const AgriPlatform = () => {
       },
       cta: {
         title: "Prêt à Transformer Votre Agriculture?",
-        description: "Rejoignez les 1 000 premiers agriculteurs du Rwanda et d'Afrique connectant leurs champs au marché",
-        button: "Commencer Maintenant"
+        description: "Rejoignez 1 000+ agriculteurs au Rwanda & Afrique connectés aux marchés",
+        button: "Commencer"
       },
       footer: {
         description: "Leader de la transformation numérique de l'agriculture africaine, à partir du Rwanda, en comblant le fossé entre le champ et le marché.",
@@ -257,72 +266,77 @@ const AgriPlatform = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 font-sans">
-      {/* Navigation - Modern Glassmorphism */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50 shadow-lg shadow-black/5">
+    <div className="min-h-screen bg-white font-sans">
+      {/* Navigation - Clean White */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' : 'bg-white shadow-sm'
+      }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-2.5 rounded-2xl shadow-lg shadow-green-500/25">
+            <div className="flex items-center gap-3 group cursor-pointer">
+              <div className="bg-gradient-to-r from-green-600 to-green-700 p-2.5 rounded-2xl shadow-lg">
                 <Leaf className="text-white w-6 h-6" />
               </div>
               <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent tracking-tight">Agri-Platforms</span>
+                <span className="text-2xl font-bold text-gray-900 tracking-tight">Agri-Platforms</span>
                 <div className="flex items-center gap-1 mt-0.5">
-                  <Sparkles className="w-3 h-3 text-green-500" />
-                  <span className="text-[10px] font-bold bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-2 py-0.5 rounded-full">Rwanda • Africa</span>
+                  <Sparkles className="w-3 h-3 text-green-600" />
+                  <span className="text-[10px] font-bold bg-green-50 text-green-700 px-2 py-0.5 rounded-full">Rwanda • Africa</span>
                 </div>
               </div>
             </div>
             
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-8 text-slate-600 font-medium">
-              <a href="#" className="hover:text-green-600 transition-all hover:scale-105">{t.nav.marketplace}</a>
-              <a href="#" className="hover:text-green-600 transition-all hover:scale-105">{t.nav.knowledgeHub}</a>
-              <a href="#" className="hover:text-green-600 transition-all hover:scale-105">{t.nav.logistics}</a>
+            <div className="hidden lg:flex gap-8 text-gray-600 font-medium">
+              {['marketplace', 'knowledgeHub', 'logistics'].map((item) => (
+                <a key={item} href="#" className="relative group">
+                  <span className="hover:text-green-600 transition-colors">{t.nav[item]}</span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                </a>
+              ))}
             </div>
             
-            <div className="hidden md:flex gap-3">
+            <div className="hidden lg:flex gap-3">
               <div className="relative">
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
-                  className="appearance-none bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-800 px-4 py-2 pr-8 rounded-xl font-medium text-sm cursor-pointer hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="appearance-none bg-gray-50 border border-gray-200 text-gray-700 px-4 py-2 pr-8 rounded-xl font-medium text-sm cursor-pointer hover:bg-gray-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   <option value="kinyarwanda">🇷🇼 Kinyarwanda</option>
                   <option value="english">🇬🇧 English</option>
                   <option value="francais">🇫🇷 Français</option>
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-green-600 w-4 h-4 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 w-4 h-4 pointer-events-none" />
               </div>
-              <button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-2 rounded-xl font-semibold transition-all shadow-md hover:shadow-xl">
+              <button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-2 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg transform hover:scale-105">
                 {t.hero.farmerBtn}
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button className="lg:hidden text-gray-700" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pt-4 border-t border-slate-100">
+            <div className="lg:hidden mt-4 pt-4 border-t border-gray-100">
               <div className="flex flex-col gap-3">
-                <a href="#" className="text-slate-600 font-medium py-2">{t.nav.marketplace}</a>
-                <a href="#" className="text-slate-600 font-medium py-2">{t.nav.knowledgeHub}</a>
-                <a href="#" className="text-slate-600 font-medium py-2">{t.nav.logistics}</a>
+                {['marketplace', 'knowledgeHub', 'logistics'].map((item) => (
+                  <a key={item} href="#" className="text-gray-600 font-medium py-2 hover:text-green-600 transition-colors">
+                    {t.nav[item]}
+                  </a>
+                ))}
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
-                  className="bg-green-50 border border-green-200 text-green-800 px-4 py-2 rounded-xl font-medium text-sm"
+                  className="bg-gray-50 border border-gray-200 text-gray-700 px-4 py-2 rounded-xl font-medium text-sm"
                 >
                   <option value="kinyarwanda">🇷🇼 Kinyarwanda</option>
                   <option value="english">🇬🇧 English</option>
                   <option value="francais">🇫🇷 Français</option>
                 </select>
-                <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-xl font-semibold">
+                <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2 rounded-xl font-semibold">
                   {t.hero.farmerBtn}
                 </button>
               </div>
@@ -331,47 +345,47 @@ const AgriPlatform = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Modern with Gradient */}
-      <main>
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-transparent to-emerald-50/50 pointer-events-none"></div>
-          <div className="absolute top-20 right-10 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-20"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-emerald-200 rounded-full blur-3xl opacity-20"></div>
-          
-          <div className="container mx-auto px-6 py-20 lg:py-28 relative">
+      {/* Hero Section - Clean & Modern */}
+      <main className="pt-32">
+        <section className="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-gray-50">
+          <div className="container mx-auto px-6 py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-2 rounded-full mb-6 shadow-sm">
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-6">
                   <Zap className="w-4 h-4" />
                   <span className="text-sm font-semibold">{t.hero.badge}</span>
                 </div>
-                <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight mb-6">
-                  {t.hero.title1} <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">{t.hero.title2}</span><br />
-                  <span className="text-slate-800">{t.hero.title3}</span>
+                <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
+                  {t.hero.title1} <span className="text-green-600">{t.hero.title2}</span><br />
+                  <span className="text-gray-800">{t.hero.title3}</span>
                 </h1>
-                <p className="text-lg text-slate-600 mb-8 max-w-lg mx-auto lg:mx-0">
+                <p className="text-lg text-gray-600 mb-8 max-w-lg">
                   {t.hero.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <button className="group bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="group bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105">
                     {t.hero.farmerBtn}
                     <ArrowRight className="inline ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button className="bg-white border-2 border-green-200 text-green-600 px-8 py-4 rounded-2xl font-bold hover:bg-green-50 hover:border-green-300 transition-all">
+                  <button className="bg-white border-2 border-green-200 text-green-600 px-8 py-4 rounded-2xl font-bold hover:bg-green-50 hover:border-green-300 transition-all hover:scale-105">
                     {t.hero.browseBtn}
                   </button>
                 </div>
               </div>
               
               <div className="relative">
-                <div className="relative w-full max-w-md mx-auto aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                  <div className="absolute inset-0 flex items-center justify-center flex-col">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-full mb-6 shadow-xl">
-                      <Globe className="w-32 h-32 text-green-500" />
-                    </div>
-                    <div className="text-center bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
-                      <p className="text-green-700 font-bold text-lg">🇷🇼 {t.hero.rwandaText}</p>
-                      <p className="text-green-600 text-sm">{t.hero.heartOfAfrica}</p>
+                <div className="relative w-full max-w-md mx-auto">
+                  <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-3xl p-8 shadow-2xl">
+                    <div className="text-center">
+                      <div className="relative inline-block mb-6">
+                        <div className="bg-white p-8 rounded-full shadow-xl">
+                          <Globe className="w-20 h-20 text-green-600" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-2xl font-bold text-gray-900">🇷🇼 {t.hero.rwandaText}</p>
+                        <p className="text-green-600">{t.hero.heartOfAfrica}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -380,41 +394,38 @@ const AgriPlatform = () => {
           </div>
         </section>
 
-        {/* Stats Section - Modern Cards */}
-        <section className="py-16 bg-white/50">
+        {/* Stats Section - Clean Cards */}
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Users, value: "10,000+", label: t.stats.farmers, color: "from-blue-500 to-cyan-500" },
-                { icon: Globe, value: "15+", label: t.stats.countries, color: "from-green-500 to-emerald-500" },
-                { icon: ShoppingCart, value: "50K+", label: t.stats.products, color: "from-purple-500 to-pink-500" },
-                { icon: Star, value: "98%", label: t.stats.satisfaction, color: "from-yellow-500 to-orange-500" }
+                { icon: Users, value: "10,000+", label: t.stats.farmers, color: "from-blue-500 to-blue-600", bg: "bg-blue-50" },
+                { icon: Globe, value: "15+", label: t.stats.countries, color: "from-green-500 to-green-600", bg: "bg-green-50" },
+                { icon: ShoppingCart, value: "50K+", label: t.stats.products, color: "from-orange-500 to-orange-600", bg: "bg-orange-50" },
+                { icon: Star, value: "98%", label: t.stats.satisfaction, color: "from-yellow-500 to-yellow-600", bg: "bg-yellow-50" }
               ].map((stat, idx) => (
-                <div key={idx} className="group relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl blur"></div>
-                  <div className="relative bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all">
-                    <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-4 shadow-lg`}>
-                      <stat.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
-                    <div className="text-sm text-slate-500 font-medium">{stat.label}</div>
+                <div key={idx} className="group bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100">
+                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-4 shadow-md`}>
+                    <stat.icon className="w-6 h-6 text-white" />
                   </div>
+                  <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-sm text-gray-500 font-medium mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Feature Grid - Modern with Hover Effects */}
-        <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+        {/* Feature Grid - Modern Cards */}
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-4">
                 <Sparkles className="w-4 h-4" />
                 <span className="text-sm font-semibold">Why Choose Us</span>
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">{t.features.title}</h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{t.features.title}</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">{t.features.subtitle}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -422,76 +433,82 @@ const AgriPlatform = () => {
                 icon={<ShoppingCart />}
                 title={t.features.marketplace.title}
                 desc={t.features.marketplace.desc}
-                color="from-green-500 to-emerald-500"
+                color="from-green-500 to-green-600"
+                bg="bg-green-50"
               />
               <FeatureCard 
                 icon={<BarChart3 />}
                 title={t.features.pricing.title}
                 desc={t.features.pricing.desc}
-                color="from-blue-500 to-cyan-500"
+                color="from-blue-500 to-blue-600"
+                bg="bg-blue-50"
               />
               <FeatureCard 
                 icon={<ShieldCheck />}
                 title={t.features.secure.title}
                 desc={t.features.secure.desc}
-                color="from-purple-500 to-pink-500"
+                color="from-purple-500 to-purple-600"
+                bg="bg-purple-50"
               />
             </div>
           </div>
         </section>
 
-        {/* Africa Map Section - Modern Grid */}
-        <section className="py-24 bg-gradient-to-br from-green-50 to-emerald-50">
+        {/* Africa Map Section - Clean Design */}
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">{t.africaSection.title}</h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">{t.africaSection.description}</p>
+              <Heart className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{t.africaSection.title}</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">{t.africaSection.description}</p>
             </div>
             
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 max-w-5xl mx-auto border border-white/50">
-              <div className="flex flex-wrap justify-center gap-3 mb-10">
-                {countries.map(country => (
-                  <span key={country.name} className="group px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-semibold hover:shadow-md transition-all cursor-pointer hover:scale-105">
+            <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto border border-gray-100">
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {countries.map((country, idx) => (
+                  <span key={country.name} className="group px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-semibold hover:bg-green-50 hover:border-green-300 hover:text-green-700 hover:scale-105 transition-all cursor-pointer">
                     {country.code} {country.name}
                   </span>
                 ))}
               </div>
               <div className="text-center">
-                <div className="inline-flex p-6 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
-                  <Globe className="w-20 h-20 text-green-600" />
+                <div className="inline-flex p-4 bg-white rounded-full mb-4 shadow-md">
+                  <Cloud className="w-10 h-10 text-green-600" />
                 </div>
-                <p className="text-slate-600 font-medium">{t.africaSection.expanding}</p>
+                <p className="text-sm text-gray-600 font-medium">{t.africaSection.expanding}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section - Modern Gradient */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600"></div>
+        {/* CTA Section - Compact */}
+        <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           
           <div className="container mx-auto px-6 text-center relative">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">{t.cta.title}</h2>
-              <p className="text-green-100 text-lg mb-8">{t.cta.description}</p>
-              <button className="group bg-white text-green-600 px-10 py-4 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+            <div className="max-w-2xl mx-auto">
+              <div className="inline-flex p-2 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">{t.cta.title}</h2>
+              <p className="text-green-100 text-base mb-6">{t.cta.description}</p>
+              <button className="group bg-white text-green-600 px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 text-sm">
                 {t.cta.button}
-                <ArrowRight className="inline ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="inline ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer Section - Modern with Glassmorphism */}
-      <footer className="bg-slate-900 text-slate-300">
+      {/* Footer - Clean Dark */}
+      <footer className="bg-gray-900 text-gray-400">
         <div className="container mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
             <div className="md:col-span-4">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-2 rounded-xl">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-xl">
                   <Leaf className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -502,11 +519,11 @@ const AgriPlatform = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed max-w-sm mb-6 text-slate-400">
+              <p className="text-sm leading-relaxed max-w-sm mb-6">
                 {t.footer.description}
               </p>
               <div>
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-bold">{t.footer.followUs}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500 font-bold">{t.footer.followUs}</span>
                 <p className="text-white font-medium mt-2">Instagram: <span className="text-green-400 hover:text-green-300 transition">@{t.footer.instagram}</span></p>
               </div>
             </div>
@@ -526,46 +543,45 @@ const AgriPlatform = () => {
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-3">
                   <Mail size={16} className="text-green-400" /> 
-                  <span className="text-slate-400">mordekai893@gmail.com</span>
+                  <span>mordekai893@gmail.com</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-green-400" /> 
-                  <span className="text-slate-400">+250 796381024</span>
+                  <span>+250 796381024</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin size={16} className="text-green-400" /> 
-                  <span className="text-slate-400">Kigali, Rwanda</span>
+                  <span>Kigali, Rwanda</span>
                 </li>
               </ul>
             </div>
 
             <div className="md:col-span-3">
               <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">{t.footer.stayUpdated}</h4>
-              <p className="text-xs text-slate-400 mb-4">{t.footer.subscribe}</p>
+              <p className="text-xs mb-4">{t.footer.subscribe}</p>
               <div className="flex gap-2">
                 <input 
                   type="email" 
                   placeholder={t.footer.emailPlaceholder} 
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 w-full focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm text-white placeholder-slate-500"
+                  className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2.5 w-full focus:ring-2 focus:ring-green-500 outline-none transition-all text-sm text-white placeholder-gray-500"
                 />
-                <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-5 py-2.5 rounded-xl hover:shadow-lg font-bold transition-all">
+                <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-5 py-2.5 rounded-xl hover:shadow-lg font-bold transition-all hover:scale-105 text-sm">
                   {t.footer.join}
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Developer Portfolio */}
           <div className="flex justify-center mb-8">
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
               <a 
                 href="https://mordekai.vercel.app" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="relative flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl transition-all duration-300 border border-slate-600 group-hover:border-green-500"
+                className="relative flex items-center gap-3 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl transition-all duration-300 border border-gray-700 group-hover:border-green-500"
               >
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-2 rounded-lg">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-lg">
                   <Code className="w-4 h-4 text-white" />
                 </div>
                 <div className="text-left">
@@ -579,12 +595,12 @@ const AgriPlatform = () => {
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-xs text-slate-500">
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-xs text-gray-500">
               © {new Date().getFullYear()} Agri-Platforms. {t.footer.copyright}
             </div>
-            <div className="px-4 py-1.5 bg-slate-800 rounded-full border border-slate-700">
-              <p className="text-xs text-slate-400">
+            <div className="px-4 py-1.5 bg-gray-800 rounded-full border border-gray-700">
+              <p className="text-xs text-gray-400">
                 {t.footer.developedBy} <span className="text-white font-semibold">UKOBUKEYE Mordekai</span>
               </p>
             </div>
@@ -595,16 +611,13 @@ const AgriPlatform = () => {
   );
 };
 
-const FeatureCard = ({ icon, title, desc, color }) => (
-  <div className="group relative">
-    <div className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl blur" style={{ background: `linear-gradient(to right, var(--tw-gradient-stops))`, ...(color && { backgroundImage: `linear-gradient(to right, ${color.split(' ')[1]}, ${color.split(' ')[3]})` }) }}></div>
-    <div className="relative p-8 rounded-2xl bg-white hover:shadow-2xl transition-all duration-300 border border-slate-100 group-hover:border-transparent">
-      <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${color} mb-6 shadow-lg`}>
-        {React.cloneElement(icon, { className: "w-6 h-6 text-white" })}
-      </div>
-      <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-      <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
+const FeatureCard = ({ icon, title, desc, color, bg }) => (
+  <div className="group bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
+    <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${color} mb-6 shadow-md`}>
+      {React.cloneElement(icon, { className: "w-6 h-6 text-white" })}
     </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+    <p className="text-gray-600 leading-relaxed text-sm">{desc}</p>
   </div>
 );
 
